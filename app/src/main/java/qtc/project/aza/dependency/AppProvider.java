@@ -1,4 +1,4 @@
-package lxt.project.aza.dependency;
+package qtc.project.aza.dependency;
 
 import b.laixuantam.myaarlibrary.api.ApiManagement;
 import b.laixuantam.myaarlibrary.helper.AppCleanerHelper;
@@ -8,8 +8,8 @@ import b.laixuantam.myaarlibrary.helper.FileHelper;
 import b.laixuantam.myaarlibrary.helper.ImageHelper;
 import b.laixuantam.myaarlibrary.helper.InstallationHelper;
 import b.laixuantam.myaarlibrary.helper.LanguageHelper;
-import lxt.project.aza.database.DatabaseHelper;
-import lxt.project.aza.helper.SharePrefs;
+//import qtc.project.aza.database.DatabaseHelper;
+import qtc.project.aza.helper.SharePrefs;
 
 /**
  * Holds a singleton instance of the current object provider and provides a quick access to the
@@ -22,9 +22,9 @@ public class AppProvider {
         instance = objectProviderInterface;
     }
 
-    public static DatabaseHelper getDatabaseHelper() {
-        return instance.getDatabaseHelper();
-    }
+//    public static DatabaseHelper getDatabaseHelper() {
+//        return instance.getDatabaseHelper();
+//    }
 
     public static ImageHelper getImageHelper() {
         return instance.getImageHelper();

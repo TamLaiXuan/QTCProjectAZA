@@ -1,4 +1,4 @@
-package lxt.project.aza.ui.views.action_bar.base_main_actionbar;
+package qtc.project.aza.ui.views.action_bar.base_main_actionbar;
 
 /**
  * Created by laixuantam on 23/7/18.

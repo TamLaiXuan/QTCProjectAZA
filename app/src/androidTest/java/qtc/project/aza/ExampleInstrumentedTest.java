@@ -1,4 +1,4 @@
-package lxt.project.aza;
+package qtc.project.aza;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

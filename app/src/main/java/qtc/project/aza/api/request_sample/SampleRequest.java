@@ -1,8 +1,8 @@
-package lxt.project.aza.api.request_sample;
+package qtc.project.aza.api.request_sample;
 
 import b.laixuantam.myaarlibrary.api.ApiRequest;
 import b.laixuantam.myaarlibrary.api.BaseApiParams;
-import lxt.project.aza.model.BaseResponseModel;
+import qtc.project.aza.model.BaseResponseModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;

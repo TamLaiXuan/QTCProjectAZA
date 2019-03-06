@@ -1,14 +1,14 @@
-package lxt.project.aza.activity;
+package qtc.project.aza.activity;
 
 import b.laixuantam.myaarlibrary.base.BaseActivity;
 import b.laixuantam.myaarlibrary.base.BaseParameters;
-import lxt.project.aza.R;
-import lxt.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarView;
-import lxt.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewCallback;
-import lxt.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewInterface;
-import lxt.project.aza.ui.views.activity.base_main_activity.BaseMainActivityView;
-import lxt.project.aza.ui.views.activity.base_main_activity.BaseMainActivityViewCallback;
-import lxt.project.aza.ui.views.activity.base_main_activity.BaseMainActivityViewInterface;
+import qtc.project.aza.R;
+import qtc.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarView;
+import qtc.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewCallback;
+import qtc.project.aza.ui.views.action_bar.base_main_actionbar.BaseMainActionbarViewInterface;
+import qtc.project.aza.ui.views.activity.base_main_activity.BaseMainActivityView;
+import qtc.project.aza.ui.views.activity.base_main_activity.BaseMainActivityViewCallback;
+import qtc.project.aza.ui.views.activity.base_main_activity.BaseMainActivityViewInterface;
 
 public class MainActivity extends BaseActivity<BaseMainActivityViewInterface, BaseMainActionbarViewInterface, BaseParameters> implements BaseMainActivityViewCallback, BaseMainActionbarViewCallback {
 
@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity<BaseMainActivityViewInterface, Ba
 
         actionbar.configBackgroundLayoutFilter(R.color.white);
 
-        actionbar.configBackgroundLayoutFilterContainer(R.drawable.border_shape_primary_layout_search_contact);
+        actionbar.configBackgroundLayoutFilterContainer(R.drawable.border_shape_primary);
 
         actionbar.configButtonBackLayoutFilter(R.color.black);
 

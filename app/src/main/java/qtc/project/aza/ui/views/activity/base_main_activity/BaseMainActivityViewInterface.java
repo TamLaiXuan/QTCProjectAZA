@@ -1,4 +1,4 @@
-package lxt.project.aza.ui.views.activity.base_main_activity;
+package qtc.project.aza.ui.views.activity.base_main_activity;
 
 import b.laixuantam.myaarlibrary.base.BaseViewInterface;
 

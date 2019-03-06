@@ -14,7 +14,14 @@
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:visibility="visible"
-        tools:visibility="gone">
+        tools:visibility="visible">
+
+        <View
+            android:id="@+id/actionBarIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray"></View>
 
         <ImageView
             android:id="@+id/btnLeftActionBar"
@@ -24,7 +31,8 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_default"
             android:clickable="true"
-            android:src="@android:drawable/sym_def_app_icon" />
+            android:src="@drawable/ic_keyboard_backspace_black_24dp"
+            android:tint="@color/txt_primary" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,9 +72,11 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_margin="5dp"
+            android:padding="5dp"
             android:background="@drawable/button_default"
             android:clickable="true"
-            android:src="@android:drawable/sym_def_app_icon"
+            android:src="@drawable/ic_logout"
+            android:tint="@color/red"
             android:visibility="gone"
             tools:visibility="visible" />
     </RelativeLayout>
@@ -78,16 +88,16 @@
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <LinearLayout
             android:id="@+id/layout_filter_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/border_shape_white_layout_toolbar_search_contact"
             android:orientation="horizontal">
 
@@ -105,9 +115,9 @@
                 android:id="@+id/edit_filter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:hint="input text"

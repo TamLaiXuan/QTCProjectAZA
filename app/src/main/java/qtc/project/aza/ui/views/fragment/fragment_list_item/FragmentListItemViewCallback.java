@@ -1,10 +1,15 @@
-package lxt.project.aza.ui.views.fragment.fragment_list_item;
+package qtc.project.aza.ui.views.fragment.fragment_list_item;
+
+import android.view.View;
+
+import qtc.project.aza.model.ProductResponseModel;
 
 /**
  * Created by laixuantam on 4/23/18.
  */
 
 public interface FragmentListItemViewCallback {
-    void onMenuItemSelected(int pos);
+    void onItemProductSelected(ProductResponseModel item, View v, int pos);
 
+    void onClickConfirm();
 }

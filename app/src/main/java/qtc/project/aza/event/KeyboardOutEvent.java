@@ -1,4 +1,4 @@
-package lxt.project.aza.event;
+package qtc.project.aza.event;
 
 
 import b.laixuantam.myaarlibrary.helper.BusHelper;

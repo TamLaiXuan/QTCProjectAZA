@@ -1,4 +1,4 @@
-package lxt.project.aza.dependency;
+package qtc.project.aza.dependency;
 
 import android.content.Context;
 
@@ -12,8 +12,8 @@ import b.laixuantam.myaarlibrary.helper.FileHelper;
 import b.laixuantam.myaarlibrary.helper.ImageHelper;
 import b.laixuantam.myaarlibrary.helper.InstallationHelper;
 import b.laixuantam.myaarlibrary.helper.LanguageHelper;
-import lxt.project.aza.database.DatabaseHelper;
-import lxt.project.aza.helper.SharePrefs;
+//import qtc.project.aza.database.DatabaseHelper;
+import qtc.project.aza.helper.SharePrefs;
 
 /**
  * Custom object provider for the normal execution of the application. It provides the default
@@ -26,7 +26,7 @@ public class AppObjectProvider implements ObjectProviderInterface {
     private SharePrefs preferences;
     private InstallationHelper installationHelper;
     private Security security;
-    private DatabaseHelper databaseHelper;
+//    private DatabaseHelper databaseHelper;
     private ImageHelper imageHelper;
     private AppCleanerHelper appCleanerHelper;
     private FileHelper fileHelper;
@@ -43,10 +43,10 @@ public class AppObjectProvider implements ObjectProviderInterface {
         b.laixuantam.myaarlibrary.dependency.AppProvider.init(objectProviderInterface1);
     }
 
-    @Override
-    public DatabaseHelper getDatabaseHelper() {
-        return (databaseHelper == null) ? (databaseHelper = new DatabaseHelper(context)) : databaseHelper;
-    }
+//    @Override
+//    public DatabaseHelper getDatabaseHelper() {
+//        return (databaseHelper == null) ? (databaseHelper = new DatabaseHelper(context)) : databaseHelper;
+//    }
 
     @Override
     public ImageHelper getImageHelper() {

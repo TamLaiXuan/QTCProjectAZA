@@ -1,5 +1,7 @@
-package lxt.project.aza.ui.views.action_bar.base_main_actionbar;
+package qtc.project.aza.ui.views.action_bar.base_main_actionbar;
 
+import android.annotation.SuppressLint;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -11,7 +13,8 @@ import android.widget.TextView;
 import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
 import b.laixuantam.myaarlibrary.helper.AppUtils;
-import lxt.project.aza.R;
+import b.laixuantam.myaarlibrary.widgets.scaletouchlistener.ScaleTouchListener;
+import qtc.project.aza.R;
 
 /**
  * Created by laixuantam on 23/7/18.
@@ -20,9 +23,10 @@ import lxt.project.aza.R;
 public class BaseMainActionbarView extends BaseView<BaseMainActionbarView.UIContainer> implements BaseMainActionbarViewInterface, View.OnClickListener {
 
     private BaseMainActionbarViewCallback callback;
-
+    private ScaleTouchListener.Config conf = new ScaleTouchListener.Config(100, 1f, 0.5f);
     private boolean showFilter = false;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void initialize(String title, final BaseMainActionbarViewCallback callback) {
         this.callback = callback;
@@ -31,9 +35,9 @@ public class BaseMainActionbarView extends BaseView<BaseMainActionbarView.UICont
 
         ui.btnLeftActionBar.setOnClickListener(this);
         ui.btnRightActionBar.setOnClickListener(this);
-        ui.buttonBackFilter.setOnClickListener(this);
+//        ui.buttonBackFilter.setOnClickListener(this);
 
-        ui.buttonClear.setOnClickListener(this);
+//        ui.buttonClear.setOnClickListener(this);
 
         ui.editFilter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -78,6 +82,11 @@ public class BaseMainActionbarView extends BaseView<BaseMainActionbarView.UICont
     }
 
     @Override
+    public void configTitleColor(int backgroundCorlor) {
+        ui.title.setTextColor(ContextCompat.getColor(getContext(), backgroundCorlor));
+    }
+
+    @Override
     public void configButtonLeftActionBar(int iconLeft, int tintColor) {
 
         ui.btnLeftActionBar.setImageResource(iconLeft);
@@ -118,6 +127,16 @@ public class BaseMainActionbarView extends BaseView<BaseMainActionbarView.UICont
     @Override
     public void hideLayoutFilter() {
         setGone(ui.layoutFilter);
+    }
+
+    @Override
+    public void showActionBarIndicator() {
+        setVisible(ui.actionBarIndicator);
+    }
+
+    @Override
+    public void hideActionBarIndicator() {
+        setGone(ui.actionBarIndicator);
     }
 
     @Override
@@ -229,6 +248,9 @@ public class BaseMainActionbarView extends BaseView<BaseMainActionbarView.UICont
 
         @UiElement(R.id.btnRightActionBar)
         public ImageView btnRightActionBar;
+
+        @UiElement(R.id.actionBarIndicator)
+        public View actionBarIndicator;
 
         @UiElement(R.id.layout_filter)
         public View layoutFilter;

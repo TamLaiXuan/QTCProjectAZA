@@ -1,4 +1,4 @@
-package lxt.project.aza;
+package qtc.project.aza;
 
 import org.junit.Test;
 

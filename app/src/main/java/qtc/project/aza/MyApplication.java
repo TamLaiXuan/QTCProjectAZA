@@ -1,4 +1,4 @@
-package lxt.project.aza;
+package qtc.project.aza;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,9 +10,9 @@ import org.acra.annotation.ReportsCrashes;
 
 import b.laixuantam.myaarlibrary.helper.MyLifecycleHandler;
 import b.laixuantam.myaarlibrary.helper.MyLog;
-import lxt.project.aza.dependency.AppObjectProvider;
-import lxt.project.aza.dependency.AppProvider;
-import lxt.project.aza.dependency.ObjectProviderInterface;
+import qtc.project.aza.dependency.AppObjectProvider;
+import qtc.project.aza.dependency.AppProvider;
+import qtc.project.aza.dependency.ObjectProviderInterface;
 
 @ReportsCrashes(
 

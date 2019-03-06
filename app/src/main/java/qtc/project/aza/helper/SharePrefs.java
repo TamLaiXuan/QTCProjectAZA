@@ -1,4 +1,4 @@
-package lxt.project.aza.helper;
+package qtc.project.aza.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;

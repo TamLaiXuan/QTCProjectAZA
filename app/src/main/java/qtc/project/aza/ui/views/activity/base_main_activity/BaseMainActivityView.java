@@ -1,11 +1,11 @@
-package lxt.project.aza.ui.views.activity.base_main_activity;
+package qtc.project.aza.ui.views.activity.base_main_activity;
 
 import android.view.View;
 import android.widget.FrameLayout;
 
 import b.laixuantam.myaarlibrary.base.BaseUiContainer;
 import b.laixuantam.myaarlibrary.base.BaseView;
-import lxt.project.aza.R;
+import qtc.project.aza.R;
 
 /**
  * Created by laixuantam on 7/6/17.

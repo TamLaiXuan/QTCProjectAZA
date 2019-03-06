@@ -1,4 +1,4 @@
-package lxt.project.aza.dependency;
+package qtc.project.aza.dependency;
 
 import b.laixuantam.myaarlibrary.api.ApiManagement;
 import b.laixuantam.myaarlibrary.helper.AppCleanerHelper;
@@ -8,14 +8,14 @@ import b.laixuantam.myaarlibrary.helper.FileHelper;
 import b.laixuantam.myaarlibrary.helper.ImageHelper;
 import b.laixuantam.myaarlibrary.helper.InstallationHelper;
 import b.laixuantam.myaarlibrary.helper.LanguageHelper;
-import lxt.project.aza.database.DatabaseHelper;
-import lxt.project.aza.helper.SharePrefs;
+//import qtc.project.aza.database.DatabaseHelper;
+import qtc.project.aza.helper.SharePrefs;
 
 public interface ObjectProviderInterface
 {
     SharePrefs getPreferences();
 
-    DatabaseHelper getDatabaseHelper();
+//    DatabaseHelper getDatabaseHelper();
 
     ImageHelper getImageHelper();
 

@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">AZA</string>
+    <string name="crash_notif_title">AZA</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_hint_username">Username</string>
+    <string name="title_hint_password">Password</string>
+    <string name="title_btn_signin">Login</string>
+    <string name="error_email_input">Email bạn nhập chưa đúng</string>
+    <string name="login_error">Đăng nhập không thành công.</string>
+    <string name="title_select_check">Check đã mua</string>
+    <string name="title_select_detail_info">Xem chi tiết</string>
 </resources>

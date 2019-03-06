@@ -1,4 +1,4 @@
-package lxt.project.aza.ui.views.action_bar.base_main_actionbar;
+package qtc.project.aza.ui.views.action_bar.base_main_actionbar;
 
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -40,6 +40,12 @@ public interface BaseMainActionbarViewInterface extends BaseActionbarView {
     void showButtonBackFilter();
 
     void hideButtonBackFilter();
+
+    void showActionBarIndicator();
+
+    void hideActionBarIndicator();
+
+    void configTitleColor(@ColorRes int backgroundCorlor);
 
     void configBackgroundLayoutFilter(@ColorRes int backgroundCorlor);
 

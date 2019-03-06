@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009464</color>
-    <color name="colorPrimaryDark">#009464</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#d9d9d9</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="black">#333333</color>
@@ -23,6 +23,9 @@
     <color name="blue_background_login_fb_press">#303F9F</color>
 
     <color name="loginBackground">#7266ba</color>
+    <color name="listBackground">#D8D8D8</color>
+    <color name="itemSelectedBackground">#9B9B9B</color>
+    <color name="check1">#c6d9ec</color>
 
     <color name="login_button">#5d54ba</color>
     <color name="login_button_press">#5452c1</color>
@@ -44,6 +47,7 @@
     <color name="gray">#a6a6a6</color>
     <color name="green">#27c24c</color>
     <color name="txt_default">#808080</color>
+    <color name="txt_primary">#A2CD3F</color>
     <color name="gray_very_light">#DDDDDD</color>
     <color name="gray_light_opacity">#DCBBBBBB</color>
 
