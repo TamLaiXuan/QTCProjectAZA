@@ -4,13 +4,14 @@ public class CurrencyUltils {
 
     public static String LONG_NEGOTIATE = "Thương lượng";
     public static String SHORT_NEGOTIATE = "TL";
+    public static String DEFAULT_PRICE = "0";
     public static int SHORT_PRICE = 1;
     public static int LONG_PRICE = 2;
 
     public static String getStringPrice(Long price, int option) {
         if (option == SHORT_PRICE) {
             float fPrice;
-            if (price > 1000000000) {
+            if (price >= 1000000000) {
                 fPrice = (float) price / 1000000000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -18,7 +19,7 @@ public class CurrencyUltils {
                 } else {
                     return fPrice + " Tỉ";
                 }
-            } else if (price > 1000000) {
+            } else if (price >= 1000000) {
                 fPrice = (float) price / 1000000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -26,7 +27,7 @@ public class CurrencyUltils {
                 } else {
                     return fPrice + " Tr";
                 }
-            } else if (price > 1000) {
+            } else if (price >= 1000) {
                 fPrice = (float) price / 1000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -35,11 +36,11 @@ public class CurrencyUltils {
                     return fPrice + " K";
                 }
             } else {
-                return SHORT_NEGOTIATE;
+                return String.valueOf(price);
             }
         } else {
             float fPrice;
-            if (price > 1000000000) {
+            if (price >= 1000000000) {
                 fPrice = (float) price / 1000000000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -47,7 +48,7 @@ public class CurrencyUltils {
                 } else {
                     return fPrice + " Tỉ";
                 }
-            } else if (price > 1000000) {
+            } else if (price >= 1000000) {
                 fPrice = (float) price / 1000000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -55,7 +56,7 @@ public class CurrencyUltils {
                 } else {
                     return fPrice + " Triệu";
                 }
-            } else if (price > 1000) {
+            } else if (price >= 1000) {
                 fPrice = (float) price / 1000;
                 fPrice = (float) (Math.round(fPrice * 100.0) / 100.0);
                 if (fPrice == (int) fPrice) {
@@ -64,7 +65,7 @@ public class CurrencyUltils {
                     return fPrice + " K";
                 }
             } else {
-                return LONG_NEGOTIATE;
+                return String.valueOf(price);
             }
         }
     }

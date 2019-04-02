@@ -83,4 +83,5 @@
 
     <color name="titleTabColor">#ffffff</color>
     <color name="titleSelectedTabColor">#3F51B5</color>
+    <color name="bg_default">#f9f9f9</color>
 </resources>

@@ -1,4 +1,4 @@
-package qtc.project.aza.api.get_product_detail;
+package qtc.project.aza.api.update_product_quantity;
 
 import android.support.annotation.Nullable;
 
@@ -12,10 +12,10 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 @ApiRequest.ApiName("ProductDetail")
-public class RequestGetProductDetail extends ApiRequest<RequestGetProductDetail.Service, ListProductResponseModel, RequestGetProductDetail.ApiParams> {
+public class RequestUpdateProductQuantity extends ApiRequest<RequestUpdateProductQuantity.Service, ListProductResponseModel, RequestUpdateProductQuantity.ApiParams> {
 
-    public RequestGetProductDetail() {
-        super(RequestGetProductDetail.Service.class, RequestOrigin.NONE, Consts.HOST_API, Consts.MODE, Consts.TRUST_CERTIFICATE);
+    public RequestUpdateProductQuantity() {
+        super(RequestUpdateProductQuantity.Service.class, RequestOrigin.NONE, Consts.HOST_API, Consts.MODE, Consts.TRUST_CERTIFICATE);
     }
 
     @Override
@@ -25,27 +25,27 @@ public class RequestGetProductDetail extends ApiRequest<RequestGetProductDetail.
 
     @Override
     protected Call<ListProductResponseModel> call(ApiParams params) {
-        params.detect = "Update_quantity";
+//        params.detect = "Update_quantity";
         return getService().call(params);
     }
 
     public interface Service {
         @Headers(Consts.HEADES)
         @POST(Consts.REST_ENDPOINT)
-        Call<ListProductResponseModel> call(@Body RequestGetProductDetail.ApiParams params);
+        Call<ListProductResponseModel> call(@Body RequestUpdateProductQuantity.ApiParams params);
     }
 
     public static class ApiParams extends BaseApiParams {
         public String detect;
         public String id_order;
         @Nullable
-        public int quantity_1;
+        public String quantity_1;
 
         @Nullable
-        public int quantity_2;
+        public String quantity_2;
 
         @Nullable
-        public int price;
+        public String price;
 
     }
 }

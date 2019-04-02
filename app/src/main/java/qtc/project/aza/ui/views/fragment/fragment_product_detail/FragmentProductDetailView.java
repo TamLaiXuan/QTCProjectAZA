@@ -68,7 +68,7 @@ public class FragmentProductDetailView extends BaseView<FragmentProductDetailVie
                 if (itemProduct != null) {
                     if (itemProduct.getCheck_box().equalsIgnoreCase("1")) {
                         Toast.makeText(getContext(), "Sản phẩm đợt 1 đã được mua.", Toast.LENGTH_SHORT).show();
-                    }else if (itemProduct.getCheck_box().equalsIgnoreCase("2")){
+                    } else if (itemProduct.getCheck_box().equalsIgnoreCase("2")) {
                         Toast.makeText(getContext(), "Sản phẩm đã mua hoàn tất.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -100,10 +100,20 @@ public class FragmentProductDetailView extends BaseView<FragmentProductDetailVie
 
 
     @Override
-    public void setDataProductItem(ProductResponseModel item) {
+    public void setDataProductItem(ProductResponseModel item, String type) {
         if (item != null) {
             itemProduct = item;
+
             ui.tvProductTitle.setText(item.getName_product());
+
+            if (!TextUtils.isEmpty(type)) {
+                if (type.equalsIgnoreCase("checking")) {
+                    setGone(ui.layoutUpdateProductPrice);
+                } else {
+                    setVisible(ui.layoutUpdateProductPrice);
+                }
+            }
+
             String price = CurrencyUltils.getStringPrice(Long.valueOf(item.getPrice()), CurrencyUltils.LONG_PRICE);
 
             if (!TextUtils.isEmpty(item.getPrice_purchased()) && Integer.valueOf(item.getPrice_purchased()) > 0) {
@@ -144,6 +154,18 @@ public class FragmentProductDetailView extends BaseView<FragmentProductDetailVie
             ui.edtUpdateQuantityPurchase1.setText("");
             ui.edtUpdateQuantityPurchase2.setText("");
             ui.edtUpdatePricePurchase.setText("");
+
+            if (!TextUtils.isEmpty(type) && type.equalsIgnoreCase("checking")) {
+
+                ui.edtUpdateQuantityPurchase1.setEnabled(true);
+                ui.edtUpdateQuantityPurchase2.setEnabled(true);
+                ui.edtUpdatePricePurchase.setEnabled(true);
+                ui.layoutDisableEditUpdateQuantityPurchase1.setVisibility(View.GONE);
+                ui.layoutDisableEditUpdateQuantityPurchase2.setVisibility(View.GONE);
+                ui.layoutDisableEditUpdatePricePurchase.setVisibility(View.GONE);
+
+
+            }
         }
     }
 
@@ -213,5 +235,8 @@ public class FragmentProductDetailView extends BaseView<FragmentProductDetailVie
 
         @UiElement(R.id.btnSubmitUpdateProductDetail)
         public View btnSubmitUpdateProductDetail;
+
+        @UiElement(R.id.layoutUpdateProductPrice)
+        public View layoutUpdateProductPrice;
     }
 }

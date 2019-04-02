@@ -103,11 +103,14 @@ public class FragmentListItemView extends BaseView<FragmentListItemView.UIContai
     @Override
     public void showEmptyListProduct() {
         setVisible(ui.layoutEmptyListProduct);
+        setGone(ui.lvListItem);
+
     }
 
     @Override
     public void hideEmptyListProduct() {
         setGone(ui.layoutEmptyListProduct);
+        setVisible(ui.lvListItem);
     }
 
     @Override

@@ -54,14 +54,47 @@ public class ListProductAdapter extends BaseListAdapter<ProductResponseModel, Li
 
         if (!TextUtils.isEmpty(item.getQuantity()) && Integer.valueOf(item.getQuantity()) > 0) {
             viewHolder.tvProductNumberCount.setText(item.getQuantity() + item.getUnit_name());
-        } else viewHolder.tvProductNumberCount.setText(item.getQuantity() + item.getUnit_name());
+        } else {
+            viewHolder.tvProductNumberCount.setText("0" + item.getUnit_name());
+        }
+
 
         if (item.getCheck_box().equalsIgnoreCase("1")) {
             viewHolder.rLayoutItem.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_shape_item_check_1_radius_5));
+
+//            if (!TextUtils.isEmpty(item.getQuantity_purchased_2()) && Integer.valueOf(item.getQuantity_purchased_2()) > 0) {
+//                viewHolder.tvProductNumberCount.setText(item.getQuantity_purchased_2() + item.getUnit_name());
+//            } else {
+//                if (item.getQuantity_purchased_1().equalsIgnoreCase(item.getQuantity()))
+//                    viewHolder.tvProductNumberCount.setText("0" + item.getUnit_name());
+//                else {
+//                    String value = String.valueOf(Integer.valueOf(item.getQuantity()) - Integer.valueOf(item.getQuantity_purchased_1()));
+//                    viewHolder.tvProductNumberCount.setText(value + item.getUnit_name());
+//                }
+//            }
+
         } else if (item.getCheck_box().equalsIgnoreCase("2")) {
             viewHolder.rLayoutItem.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_shape_item_selected_radius_5));
+
+//            if (!TextUtils.isEmpty(item.getQuantity()) && Integer.valueOf(item.getQuantity()) >= 0) {
+//                viewHolder.tvProductNumberCount.setText(item.getQuantity() + item.getUnit_name());
+//            } else {
+//                viewHolder.tvProductNumberCount.setText("0" + item.getUnit_name());
+//            }
         } else {
             viewHolder.rLayoutItem.setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.drawable.border_shape_white_radius_5));
+
+//            if (!TextUtils.isEmpty(item.getQuantity()) && Integer.valueOf(item.getQuantity()) > 0) {
+//
+//                if (!TextUtils.isEmpty(item.getQuantity_purchased_1()) && item.getQuantity_purchased_1().equalsIgnoreCase("0")) {
+//                    viewHolder.tvProductNumberCount.setText(item.getQuantity() + item.getUnit_name());
+//                } else
+//                    viewHolder.tvProductNumberCount.setText(item.getQuantity_purchased_1() + item.getUnit_name());
+//            } else {
+//                viewHolder.tvProductNumberCount.setText("0" + item.getUnit_name());
+//            }
+
+
         }
 
         if (!TextUtils.isEmpty(filterString)) {

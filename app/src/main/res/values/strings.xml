@@ -9,4 +9,18 @@
     <string name="login_error">Đăng nhập không thành công.</string>
     <string name="title_select_check">Check đã mua</string>
     <string name="title_select_detail_info">Xem chi tiết</string>
+
+
+    <string name="title_qtc">QTC Infomatics</string>
+    <string name="title_introduce">Giới thiệu</string>
+    <string name="title_service">Dịch vụ</string>
+    <string name="title_products">Sản phẩm</string>
+    <string name="title_prire_list">Bảng giá</string>
+    <string name="title_contact">Liên hệ</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_logout">Đăng xuất</string>
+    <string name="title_duty">Nhiệm vụ</string>
+    <string name="title_duty_qtc_sample">Hiểu rõ về tiềm năng phát triển của các hệ thông công nghệ ứng dụng, QTC được thành lập với nhiệm vụ mang đến cho khách hàng các sản phẩm hỗ trợ tối đa các nhu cầu mục đích của khách hàng trong quá trình kinh doanh</string>
+    <string name="title_plant">Kế hoạch</string>
+    <string name="title_view">Tầm nhìn</string>
 </resources>

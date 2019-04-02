@@ -17,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="5dp"
-        android:background="@color/listBackground"
         android:orientation="horizontal"
         android:visibility="visible"
         tools:visibility="visible">

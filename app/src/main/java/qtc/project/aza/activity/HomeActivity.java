@@ -1,6 +1,7 @@
 package qtc.project.aza.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,13 +112,56 @@ public class HomeActivity extends BaseFragmentActivity<BaseMainActivityViewInter
             if (fragment instanceof FragmentListProduct) {
                 ((FragmentListProduct) fragment).requestGetListProduct();
             } else if (fragment instanceof FragmentCheckingOrder) {
-                ((FragmentCheckingOrder) fragment).requestGetListCheckingOrder();
+                ((FragmentCheckingOrder) fragment).resetListData();
+                ((FragmentCheckingOrder) fragment).requestGetListCheckingOrder(true);
             }
         } else {
 
-            changeToFragmentListProduct();
+            checkFragment();
         }
     }
+
+    public void checkFragment() {
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    BaseFragment frag = getCurrentFragment();
+
+                    if (frag instanceof FragmentCheckingOrder) {
+                        isShowListOrder = true;
+                        isShowDetail = false;
+
+                        actionbar.showButtonRightActionBar();
+                        actionbar.showButtonLeftActionBar();
+                        actionbar.configButtonLeftActionBar(R.drawable.ic_loop_black_24dp, R.color.txt_primary);
+                        actionbar.setTitle("Kiểm hàng");
+                        actionbar.showActionBarIndicator();
+                        actionbar.configTitleColor(R.color.txt_primary);
+                    } else {
+                        isShowListOrder = true;
+                        isShowDetail = false;
+                        actionbar.showButtonRightActionBar();
+                        actionbar.showButtonLeftActionBar();
+                        actionbar.configButtonLeftActionBar(R.drawable.ic_loop_black_24dp, R.color.txt_primary);
+                        actionbar.setTitle("Danh sách đặt hàng");
+                        actionbar.showActionBarIndicator();
+                        actionbar.configTitleColor(R.color.txt_primary);
+                    }
+                }
+            }, 300);
+
+
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
     @Override
     public void onClickButtonRightActionbar() {
@@ -171,6 +215,7 @@ public class HomeActivity extends BaseFragmentActivity<BaseMainActivityViewInter
 
         isShowListOrder = false;
         isShowDetail = true;
+        String type = "";
 
         actionbar.hideButtonRightActionBar();
         actionbar.showButtonLeftActionBar();
@@ -179,7 +224,14 @@ public class HomeActivity extends BaseFragmentActivity<BaseMainActivityViewInter
         actionbar.showActionBarIndicator();
         actionbar.configTitleColor(R.color.txt_primary);
 
-        addFragment(FragmentProductDetail.newInstance(item), false, Animation.SLIDE_IN_OUT);
+        BaseFragment baseFragment = getCurrentFragment();
+        if (baseFragment instanceof FragmentListProduct) {
+            type = "order";
+        } else {
+            type = "checking";
+        }
+
+        addFragment(FragmentProductDetail.newInstance(item, type), true, Animation.SLIDE_IN_OUT);
 
     }
 

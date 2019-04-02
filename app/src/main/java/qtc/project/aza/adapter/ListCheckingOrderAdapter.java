@@ -52,7 +52,8 @@ public class ListCheckingOrderAdapter extends BaseListAdapter<ProductResponseMod
         viewHolder.tvProductName2.setText(item.getName_product());
         viewHolder.tvQuantityPurchase1.setText(item.getQuantity_purchased_1() + item.getUnit_name());
         viewHolder.tvQuantityPurchase2.setText(item.getQuantity_purchased_2() + item.getUnit_name());
-        viewHolder.tvTotalPurchase.setText(item.getTotal_purchase() + item.getUnit_name());
+
+        viewHolder.tvTotalPurchase.setText(item.getQuantity() + item.getUnit_name());
 
 
         if (!TextUtils.isEmpty(filterString)) {
@@ -77,6 +78,21 @@ public class ListCheckingOrderAdapter extends BaseListAdapter<ProductResponseMod
 
         }
 
+        if (item.getCheck_box().equalsIgnoreCase("3")) {
+            viewHolder.tvProductName2.setTextColor(ContextCompat.getColor(getContext(), R.color.check1));
+            viewHolder.tvQuantityPurchase1.setTextColor(ContextCompat.getColor(getContext(), R.color.check1));
+            viewHolder.tvQuantityPurchase2.setTextColor(ContextCompat.getColor(getContext(), R.color.check1));
+            viewHolder.tvTotalPurchase.setTextColor(ContextCompat.getColor(getContext(), R.color.check1));
+        }
+
+        viewHolder.rLayoutItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onItemProductSelected(item, v, position);
+                }
+            }
+        });
     }
 
     @Override

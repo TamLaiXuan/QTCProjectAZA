@@ -3,6 +3,9 @@ package qtc.project.aza.fragment;
 import android.text.TextUtils;
 import android.view.View;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.concurrent.TimeoutException;
 
 import b.laixuantam.myaarlibrary.api.ApiRequest;
@@ -16,6 +19,8 @@ import qtc.project.aza.activity.HomeActivity;
 import qtc.project.aza.api.check_order.RequestCheckOrder;
 import qtc.project.aza.api.get_list_product.RequestGetListProduct;
 import qtc.project.aza.dependency.AppProvider;
+import qtc.project.aza.event.ReloadDataCheckingOrderEvent;
+import qtc.project.aza.event.ReloadDataListOrderEvent;
 import qtc.project.aza.model.BaseResponseModel;
 import qtc.project.aza.model.ListProductResponseModel;
 import qtc.project.aza.model.ProductResponseModel;
@@ -39,6 +44,13 @@ public class FragmentListProduct extends BaseFragment<FragmentListItemViewInterf
         requestGetListProduct();
 
         setUpPopupMenu();
+    }
+
+    @SuppressWarnings("unused")
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onReloadDataListOrderEvent(ReloadDataListOrderEvent event) {
+        if (view != null) {
+        }
     }
 
     public void requestGetListProduct() {
@@ -89,9 +101,6 @@ public class FragmentListProduct extends BaseFragment<FragmentListItemViewInterf
 
     @Override
     public void onItemProductSelected(ProductResponseModel item, View v, int pos) {
-//        itemSelected = item;
-//        positionItemSelected = pos;
-//        quickAction.show(v);
         showPopupMenuItem(item, v, pos);
     }
 

@@ -5,6 +5,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ import qtc.project.aza.model.ProductResponseModel;
 public class FragmentCheckingOrderView extends BaseView<FragmentCheckingOrderView.UIContainer> implements FragmentCheckingOrderViewInterface {
 
     private ListCheckingOrderAdapter adapter;
+
+    private List<ProductResponseModel> listProductResponseModels = new ArrayList<>();
+
 
     @Override
     public void init(FragmentCheckingOrderViewCallback callback) {
@@ -38,6 +42,15 @@ public class FragmentCheckingOrderView extends BaseView<FragmentCheckingOrderVie
                 }
             }
         });
+
+        adapter = new ListCheckingOrderAdapter(getContext(), listProductResponseModels, new ListCheckingOrderAdapter.ListProductAdapterListener() {
+            @Override
+            public void onItemProductSelected(ProductResponseModel item, View view, int pos) {
+//                Toast.makeText(getContext(), "ClickItem " + item.getName_product(), Toast.LENGTH_SHORT).show();
+                callback.onItemSelected(item,view,pos);
+            }
+        });
+        ui.lvListItem.setAdapter(adapter);
     }
 
     @Override
@@ -50,27 +63,40 @@ public class FragmentCheckingOrderView extends BaseView<FragmentCheckingOrderVie
         setGone(ui.layoutEmptyListProduct);
     }
 
+//    @Override
+//    public void setDataListItem(ProductResponseModel[] dataListItem) {
+//        if (dataListItem != null && dataListItem.length > 0) {
+//            hideEmptyListProduct();
+//            List<ProductResponseModel> listProduct = new ArrayList<>();
+//
+//            for (ProductResponseModel item : dataListItem) {
+//                listProduct.add(item);
+//            }
+//
+//            adapter = new ListCheckingOrderAdapter(getContext(), listProduct, new ListCheckingOrderAdapter.ListProductAdapterListener() {
+//                @Override
+//                public void onItemProductSelected(ProductResponseModel item, View view, int pos) {
+//                    Toast.makeText(getContext(), "ClickItem " + item.getName_product(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            ui.lvListItem.setAdapter(adapter);
+//
+//        } else {
+//            showEmptyListProduct();
+//        }
+//    }
+
     @Override
-    public void setDataListItem(ProductResponseModel[] dataListItem) {
-        if (dataListItem != null && dataListItem.length > 0) {
-            hideEmptyListProduct();
-            List<ProductResponseModel> listProduct = new ArrayList<>();
-
-            for (ProductResponseModel item : dataListItem) {
-                listProduct.add(item);
-            }
-
-            adapter = new ListCheckingOrderAdapter(getContext(), listProduct, new ListCheckingOrderAdapter.ListProductAdapterListener() {
-                @Override
-                public void onItemProductSelected(ProductResponseModel item, View view, int pos) {
-
-                }
-            });
-            ui.lvListItem.setAdapter(adapter);
-
-        } else {
+    public void setDataListItem(List<ProductResponseModel> list) {
+        if (list == null || list.size() == 0) {
             showEmptyListProduct();
+            return;
         }
+
+        listProductResponseModels.clear();
+        listProductResponseModels.addAll(list);
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override

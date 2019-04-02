@@ -7,7 +7,7 @@ public interface FragmentProductDetailViewInterface extends BaseViewInterface {
 
     void init(FragmentProductDetailViewCallback callback);
 
-    void setDataProductItem(ProductResponseModel item);
+    void setDataProductItem(ProductResponseModel item, String type);
 
     void UpdateProduct(String quantityPurchase1, String quantityPurchase2, String pricePurchase, String unit);
 
