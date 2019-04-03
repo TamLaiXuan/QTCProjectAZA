@@ -16,9 +16,9 @@ android:
  # - 'android-sdk-license-.+'
   #- 'intel-android-extra-license.+'
 
-#before_install:
- # - yes | sdkmanager "platforms;android-28"
-  #- yes | sdkmanager "platforms;android-27"
+before_install:
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "platforms;android-27"
 #before_script:
    #- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 32M
   # - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
