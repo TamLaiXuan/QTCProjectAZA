@@ -112,8 +112,12 @@ public class HomeActivity extends BaseFragmentActivity<BaseMainActivityViewInter
             if (fragment instanceof FragmentListProduct) {
                 ((FragmentListProduct) fragment).requestGetListProduct();
             } else if (fragment instanceof FragmentCheckingOrder) {
-                ((FragmentCheckingOrder) fragment).resetListData();
-                ((FragmentCheckingOrder) fragment).requestGetListCheckingOrder(true);
+                if (((FragmentCheckingOrder) fragment).getViewMode().equalsIgnoreCase("checking")) {
+                    ((FragmentCheckingOrder) fragment).resetListData();
+                    ((FragmentCheckingOrder) fragment).requestGetListCheckingOrder(true);
+                } else {
+                    ((FragmentCheckingOrder) fragment).requestGetListProductPurchase();
+                }
             }
         } else {
 

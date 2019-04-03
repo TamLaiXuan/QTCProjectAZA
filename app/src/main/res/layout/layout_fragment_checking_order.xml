@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="0px"
@@ -72,29 +73,122 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lvListItem"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/layout_filter"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        tools:listitem="@layout/row_item_checking_order"></ListView>
-
     <RelativeLayout
-        android:id="@+id/layoutEmptyListProduct"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/layout_filter"
-        android:visibility="gone">
+        android:layout_height="50dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:text="Danh sách trống"
-            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/btnListProductChecking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Hàng đã mua"
+                    android:textColor="@color/red"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/viewIndicatorListProductChecking"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/green"></View>
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray"></View>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/btnListProductPurchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:padding="5dp"
+                    android:text="Hàng dự mua"
+                    android:textColor="@color/red"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/viewIndicatorListProductPurchase"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/green"
+                    android:visibility="gone"
+                    tools:visibility="gone"></View>
+            </RelativeLayout>
+
+
+        </LinearLayout>
 
     </RelativeLayout>
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lvListItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            tools:listitem="@layout/row_item_checking_order"></ListView>
+
+        <ListView
+            android:id="@+id/lvListPurchaseItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:listSelector="@color/transparent"
+            android:visibility="gone"
+            tools:listitem="@layout/row_item_product"></ListView>
+
+        <RelativeLayout
+            android:id="@+id/layoutEmptyListProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:text="Danh sách trống"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

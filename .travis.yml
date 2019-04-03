@@ -22,4 +22,6 @@ android:
     - android-sdk-license-.+
     - google-gdk-license-.+
 
+    - echo yes | sdkmanager "build-tools;27.0.1"
+
 # update config

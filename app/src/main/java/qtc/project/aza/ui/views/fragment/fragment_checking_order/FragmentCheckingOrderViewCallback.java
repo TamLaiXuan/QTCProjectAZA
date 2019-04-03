@@ -6,4 +6,11 @@ import qtc.project.aza.model.ProductResponseModel;
 
 public interface FragmentCheckingOrderViewCallback {
     void onItemSelected(ProductResponseModel item, View view, int pos);
+
+    void onRequestGetListProductPurchase();
+
+    void setChangeViewMode(String checking);
+
+    void onRequestGetListProductChecking();
+
 }

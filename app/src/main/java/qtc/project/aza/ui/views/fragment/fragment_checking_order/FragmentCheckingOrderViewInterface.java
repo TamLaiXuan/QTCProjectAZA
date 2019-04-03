@@ -15,6 +15,7 @@ public interface FragmentCheckingOrderViewInterface extends BaseViewInterface {
 
 //    void setDataListItem(ProductResponseModel[] dataListItem);
 
+    void setDataListItemPurchase(ProductResponseModel[] dataListItem);
 
     void setDataListItem(List<ProductResponseModel> listProductResponseModels);
 }

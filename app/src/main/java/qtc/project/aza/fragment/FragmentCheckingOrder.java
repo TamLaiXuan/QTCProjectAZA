@@ -16,6 +16,7 @@ import b.laixuantam.myaarlibrary.base.BaseParameters;
 import qtc.project.aza.R;
 import qtc.project.aza.activity.HomeActivity;
 import qtc.project.aza.api.checking_order.RequestCheckingOrder;
+import qtc.project.aza.api.get_list_product.RequestGetListProduct;
 import qtc.project.aza.dependency.AppProvider;
 import qtc.project.aza.event.ReloadDataCheckingOrderEvent;
 import qtc.project.aza.model.ListProductResponseModel;
@@ -29,6 +30,8 @@ public class FragmentCheckingOrder extends BaseFragment<FragmentCheckingOrderVie
     private List<ProductResponseModel> listProductResponseModels = new ArrayList<>();
 
     private HomeActivity homeActivity;
+
+    private String viewMode = "checking";
 
     @Override
     protected void initialize() {
@@ -67,8 +70,17 @@ public class FragmentCheckingOrder extends BaseFragment<FragmentCheckingOrderVie
     }
 
     public void resetListData() {
-//        showToast("clear list data");
         listProductResponseModels.clear();
+    }
+
+    @Override
+    public void onRequestGetListProductChecking() {
+        if (listProductResponseModels.size() ==0) {
+            resetListData();
+            requestGetListCheckingOrder(true);
+        }else{
+            view.setDataListItem(listProductResponseModels);
+        }
     }
 
     public void requestGetListCheckingOrder(boolean isShowLoadingView) {
@@ -116,6 +128,51 @@ public class FragmentCheckingOrder extends BaseFragment<FragmentCheckingOrderVie
         });
     }
 
+    @Override
+    public void onRequestGetListProductPurchase() {
+        requestGetListProductPurchase();
+    }
+
+    public void requestGetListProductPurchase() {
+        if (!AppProvider.getConnectivityHelper().hasInternetConnection()) {
+            showToast(R.string.error_connect_internet);
+            view.setDataListItem(null);
+            return;
+        }
+        showProgress();
+
+        RequestGetListProduct.ApiParams params = new RequestGetListProduct.ApiParams();
+
+        AppProvider.getApiManagement().call(RequestGetListProduct.class, params, new ApiRequest.ApiCallback<ListProductResponseModel>() {
+            @Override
+            public void onSuccess(ListProductResponseModel result) {
+                dismissProgress();
+                if (result != null && !TextUtils.isEmpty(result.getSuccess()) && result.getSuccess().equalsIgnoreCase("true")) {
+                    view.setDataListItemPurchase(result.getData());
+                } else {
+                    view.setDataListItemPurchase(null);
+                }
+
+            }
+
+            @Override
+            public void onError(ErrorApiResponse error) {
+                dismissProgress();
+                view.setDataListItemPurchase(null);
+            }
+
+            @Override
+            public void onFail(ApiRequest.RequestError error) {
+                dismissProgress();
+                view.setDataListItemPurchase(null);
+            }
+        });
+    }
+
+    @Override
+    public void setChangeViewMode(String mode) {
+        this.viewMode = mode;
+    }
 
     @Override
     protected FragmentCheckingOrderViewInterface getViewInstance() {
@@ -125,5 +182,9 @@ public class FragmentCheckingOrder extends BaseFragment<FragmentCheckingOrderVie
     @Override
     protected BaseParameters getParametersContainer() {
         return null;
+    }
+
+    public String getViewMode() {
+        return viewMode;
     }
 }

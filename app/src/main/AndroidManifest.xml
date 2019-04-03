@@ -6,7 +6,7 @@
     <application
         android:name="qtc.project.aza.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icon_app_72"
+        android:icon="@drawable/logo_aza"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
