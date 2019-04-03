@@ -1,16 +1,14 @@
 language: android
 android:
   components:
-    - tools # to get the new `repository-11.xml`
-    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
+    - tools
     - platform-tools
     - build-tools-27.0.3
     - android-27
     - extra-android-m2repository
-jdk:
-  - oraclejdk8
-before_install:
-  - yes | sdkmanager "platforms;android-27"
-script:
-   - ./gradlew build connectedCheck
-sudo: required
+    - extra-google-m2repository
+    - addon-google_apis-google-19
+licenses:
+ - android-sdk-preview-license-.+
+ - android-sdk-license-.+
+ - google-gdk-license-.+
