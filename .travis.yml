@@ -10,6 +10,8 @@ android:
     # https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943
     - tools
     - tools
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-21
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
