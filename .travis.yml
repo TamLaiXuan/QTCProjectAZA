@@ -30,5 +30,5 @@ before_script:
     - adb devices
     - adb shell input keyevent 82 &
 
-script:
-   - ./gradlew build checkstyle connectedCheck -PdisablePreDex
+#script:
+ #  - ./gradlew build checkstyle connectedCheck -PdisablePreDex
